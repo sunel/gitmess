@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Git Mess</title>
+    <meta name="description" content="Guideline on how to fix the mess that You have made with Git">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.css">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: "Open Sans", serif;
+			background-color: #1b1c1d!important;
+			color: #fff!important;
+
+		}
+		.column.starter {
+			padding: 40px 15px;
+		}
+		.ui.inverted.label{
+			background-color: transparent;
+		 	box-shadow: 0 0 0 2px #d4d4d5 inset!important;
+		}
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	 <div id="git-mess" class="ui page grid">
+        <div class="row">
+            <div class="center aligned starter column">
+            	<div class="ui inverted segment">
+			    	<div class="big ui inverted blue button">
+			    		So you have mess in your hand &nbsp;
+			    		<i class="coffee icon">&nbsp;</i>
+			    	</div>
+				</div>
+				
+				<div class="ui inverted segment">
+			    	<div class="big ui inverted green button click" id="initial">
+			    		Yep &nbsp;
+			    		<i class="frown icon">&nbsp;</i>
+			    	</div>
+			    </div>
+			    <div class="ui inverted segment hide option" data-map="initial">
+			    	<div class="ui inverted segment">
+				    	<div class="ui inverted segment transition ">
+					    	<div class="big ui inverted blue button">What sort of mess ?</div>
+					    </div>
+				    	<div class="ui inverted buttons">
+						    <div class="big ui inverted green button click" id="1">An uncommitted mess</div>
+						    
+						    <div class="big ui inverted green button click" id="2">I accidentily committed something</div>
+						    
+						    <div class="big ui inverted green button click" id="3">My Git history is ugly</div>
+						 </div>
+					</div>	    
+			    	<div class="ui inverted segment hide option" data-map="1">
+				    	<div class="ui inverted segment">
+					    	<div class="big ui inverted blue button">Do you care enough about your mess to keep it ?</div>
+					    	<div class="ui inverted segment">
+						    	<div class="ui inverted buttons">
+							    		<div class="big ui inverted green button click" id="1.1">Yes</div>
+							    		<div class="big ui inverted green button click done" id="1.2">No</div>
+							    </div>
+							 </div>   
+					    </div>
+					   <div class="ui inverted segment hide option" data-map="1.1">
+					   	
+						    <div class="ui inverted segment">
+						    	<div class="big ui inverted blue button">Looks like we caught this just in time</div>
+						    </div>
+						    
+						    <div class="ui inverted segment">
+						    	<div class="big ui inverted blue button">Split off a logical chunk from your mess, stage it, and commit it with a good message.</div>
+						    </div>
+						    
+						    <div class="ui inverted segment">
+						    	<div class="big ui inverted blue button">Still have a mess ?</div>
+						    </div>
+						    
+						    <div class="ui inverted segment">
+						    	<div class="ui inverted buttons">
+						    		<div class="big ui inverted green button click" id="1.1.1">Yes</div>
+						    		<div class="big ui inverted green button click done" id="1.1.2">No we're cool now</div>
+						    	</div>
+						    </div>
+						</div>
+						
+						<div class="ui inverted segment hide option" data-map="1.2">
+							<p class="big ui inverted black label">git reset --hard</p>
+						</div>	
+					</div>
+					<div class="ui inverted segment hide option" data-map="2">	
+						<div class="ui inverted segment">
+					    	<div class="big ui inverted blue button">Has anyone else seen it ?</div>
+					    	<div class="ui inverted segment">
+						    	<div class="ui inverted buttons">
+						    		<div class="big ui inverted green button click" id="2.1">Not Yet</div>
+						    		<div class="big ui inverted green button click done" id="2.2">Yes</div>
+						    	</div>
+						    </div>
+					    </div>	
+						<div class="ui inverted segment hide option" data-map="2.2">
+					   		<p class="big ui inverted black label">git revert {COMMITHASH}</p>
+					    </div>
+					    <div class="ui inverted segment hide option" data-map="2.1">
+					    	<div class="ui inverted segment">
+					    		<div class="ui inverted segment">
+						    		<div class="big ui inverted blue button">How long ago ?</div>
+						    	</div>	
+						    	<div class="ui inverted buttons">
+						    		<div class="big ui inverted green button click" id="2.1.1">Last commit</div>
+						    		<div class="big ui inverted green button click" id="2.1.2">It seems like forever ago</div>
+						    	</div>
+						    </div>
+						    <div class="ui inverted segment hide option" data-map="2.1.1">
+						    	<div class="ui inverted segment">
+						    		<div class="ui inverted segment">
+							    		<div class="big ui inverted blue button">What would make it better ?</div>
+							    	</div>	
+							    	<div class="ui inverted buttons">
+							    		<div class="big ui inverted green button click done" id="2.1.1.1">I forgot to add a file</div>
+							    		<div class="big ui inverted green button click done" id="2.1.1.2">A better message</div>
+							    		<div class="big ui inverted green button click done" id="2.1.1.3">Just throw the last commit away </div>
+							    	</div>
+							    </div>	
+						    	<div class="ui inverted segment hide option" data-map="2.1.1.1">
+							    	<p class="big ui inverted black label">git add {myfile}</p>
+							    </div>
+							    <div class="ui inverted segment hide option" data-map="2.1.1.2">
+							    	<p class="big ui inverted black label">git commit --amend</p>
+							    </div>
+							    <div class="ui inverted segment hide option" data-map="2.1.1.3">
+							    	<p class="big ui inverted black label">git reset --hard HEAD^</p>
+							    </div>
+					    	</div>
+					    	<div class="ui inverted segment hide option" data-map="2.1.2">
+					    		<div class="ui inverted segment">
+						    		<div class="ui inverted segment">
+								    	<div class="big ui inverted blue button">Take a milligan ?</div>
+								    </div>
+								    <div class="ui inverted buttons">
+							    		<div class="big ui inverted green button click done" id="2.1.2.1">Yes</div>
+							    		<div class="big ui inverted green button click" id="2.1.2.2">No</div>
+							    	</div>
+								</div>    
+						    	<div class="ui inverted segment hide option" data-map="2.1.2.1">
+							    	<div class="big ui inverted blue button">We'll reset and commit form scratch</div>
+							    	<div class="ui inverted segment">
+						    			<p class="big ui inverted black label">git reset {COMMITHASH}</p>
+						    		</div>	
+							    </div>
+					    	</div>
+					   </div>
+					</div>
+					<div class="ui inverted segment hide option" data-map="3">	
+						<div class="ui inverted segment">
+					    	<div class="big ui inverted blue button" >Is it already on Github ?</div>
+					    	<div class="ui inverted segment">
+						    	<div class="ui inverted buttons">
+						    		<div class="big ui inverted green button click" id="3.1">Yes</div>
+						    		<div class="big ui inverted green button click" id="3.2">No</div>
+						    	</div>
+						    </div>
+					    </div>	
+						<div class="ui inverted segment hide option" data-map="3.1">
+							<div class="ui inverted segment">
+					    		<div class="ui inverted segment">
+							    	<div class="big ui inverted blue button">Is any one down stream ?</div>
+							    </div>
+							    <div class="ui inverted buttons">
+						    		<div class="big ui inverted green button click" id="3.1.1">Yes</div>
+						    		<div class="big ui inverted green button click" id="3.1.2">No</div>
+						    	</div>
+							</div>
+							<div class="ui inverted segment hide option" data-map="3.1.1">
+								<div class="ui inverted segment">
+							    	<div class="big ui inverted blue button">Enough to from a lynch mob ?</div>
+							    </div>
+							    <div class="ui inverted buttons">
+						    		<div class="big ui inverted green button click" id="3.1.1.1">Yes</div>
+						    		<div class="big ui inverted green button click" id="3.1.1.2">No</div>
+						    	</div>
+						    	<div class="ui inverted segment hide option" data-map="3.1.1.1">
+						    		<div class="big ui inverted red button">It's safest to let it stay ugly then</div>
+						    	</div>
+						    	<div class="ui inverted segment hide option" data-map="3.1.1.2">
+						    		<div class="ui inverted segment">
+							    		<div class="ui inverted segment">
+									    	<div class="big ui inverted blue button">Do you hate them ?</div>
+									    </div>
+									    <div class="ui inverted buttons">
+								    		<div class="big ui inverted green button click" id="3.1.1.2.1">Yes</div>
+								    		<div class="big ui inverted green button click" id="3.1.1.2.2">No</div>
+								    	</div>
+									</div>
+									<div class="ui inverted segment hide option" data-map="3.1.1.2.2">
+							    		<div class="big ui inverted pink button">Sent them a note, let them know you're changing history</div>
+							    	</div>
+						    	</div>	
+							</div>	
+						</div>
+						<div class="ui inverted segment hide option" data-map="3.2">
+							<div class="ui inverted segment">
+					    		<div class="ui inverted segment">
+							    	<div class="big ui inverted blue button">Should we remove merge commits ?</div>
+							    </div>
+							    <div class="ui inverted buttons">
+						    		<div class="big ui inverted green button click done" id="3.2.1">That would do the trick</div>
+						    		<div class="big ui inverted green button click done" id="3.2.2">No, i need to change history</div>
+						    	</div>
+							</div>
+							<div class="ui inverted segment hide option" data-map="3.2.1">
+						    	<p class="big ui inverted black label">git rebase origin/{branch}</p>
+						    </div>
+						</div>	
+					</div>
+				</div>	    	
+				<div class="ui inverted segment hide option 2-1-2-2 3-1-1-2-1 3-1-1-2-2 3-2-2">
+			    	<div class="big ui inverted blue button">We're going to do a interactive rebase</div>
+			    	<div class="ui inverted segment">
+		    			<p class="big ui inverted black label">git rebase -i {COMMITHASH}</p>
+		    			<p class="big ui inverted black label">...</p>
+		    			<p class="big ui inverted black label">git push --force origin {branch}</p>
+		    		</div>	
+			    </div>	    
+			    <div class="ui inverted segment hide final">
+			    	<div class="huge ui inverted purple button">Everything is gone be fine</div>
+			    </div>
+			    
+			</div>
+        </div>
+        
+    </div>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script>
+    	Zepto(function($){
+    		$('.click').each(function(i,el){
+    			$(el).click(function(el){
+    				var current = $(this);
+    				
+    				$('.final').addClass('hide');
+    				
+    				var parent = current.closest('.option');
+    				var buttons = current.closest('.buttons').children('.button');
+    				
+    				var children = parent.children('.option');
+    				children.addClass('hide');
+    				
+    				buttons.removeClass('active');
+    				current.toggleClass('active');
+    				
+    				if(current.hasClass('done')){
+    					var cls = current.attr('id');
+    					$('.final').removeClass('hide');
+    				}
+    				$('div[data-map="'+current.attr('id')+'"]').toggleClass('hide');	
+    				
+    				
+    			});	
+    		});
+    	});
+    	
+    </script>
+</body>
+</html>
